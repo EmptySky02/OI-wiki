@@ -56,7 +56,7 @@ auto split(int x) {
   if (it->l == x) return it;
   int l = it->l, r = it->r, v = it->v;
   odt.erase(it);
-  odt.insert(Node_t(l, x - 1, v));
+  if (l < x) odt.insert(Node_t(l, x - 1, v));
   return odt.insert(Node_t(x, r, v)).first;
 }
 ```
